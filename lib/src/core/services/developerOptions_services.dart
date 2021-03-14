@@ -11,14 +11,7 @@ class DeveloperOptionsService {
 
   Future<bool> init() async {
     _prefs = await SharedPreferences.getInstance();
-    print("got string");
-    String debugTest = _prefs.getString(KEY_DEVELOPER_OPTIONS) ?? "{}";
-    print(debugTest);
-    print("got debug test");
-    print(debugTest.runtimeType);
-
-    _developerOptions = DeveloperOptionsModel.fromString(debugTest);
-    print("Got developerOptions");
+    _developerOptions = DeveloperOptionsModel.fromString(_prefs.getString(KEY_DEVELOPER_OPTIONS) ?? "{}");
     isEnabled = _developerOptions.enabled;
     started = true;
     return true;
@@ -40,6 +33,7 @@ class DeveloperOptionsService {
 
   setDeveloperOption(String key, bool value) {
     _developerOptions.options[key] = value;
+    _saveDeveloperOptions();
   }
 
   bool? getDeveloperOption(String key) {
@@ -48,6 +42,7 @@ class DeveloperOptionsService {
 
   setDeveloperString(String key, String value) {
     _developerOptions.strings[key] = value;
+    _saveDeveloperOptions();
   }
 
   String? getDeveloperString(String key) {

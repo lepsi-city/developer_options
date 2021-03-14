@@ -1,3 +1,8 @@
+## [0.3.1] - 14.3.2021
+
+* Fix saving bug
+* Remove prints
+
 ## [0.3.0] - 14.3.2021
 
 * Fix some bugs
