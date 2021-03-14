@@ -11,7 +11,14 @@ class DeveloperOptionsService {
 
   Future<bool> init() async {
     _prefs = await SharedPreferences.getInstance();
-    _developerOptions = DeveloperOptionsModel.fromString(_prefs.getString(KEY_DEVELOPER_OPTIONS) ?? "{}");
+    print("got string");
+    String debugTest = _prefs.getString(KEY_DEVELOPER_OPTIONS) ?? "{}";
+    print(debugTest);
+    print("got debug test");
+    print(debugTest.runtimeType);
+
+    _developerOptions = DeveloperOptionsModel.fromString(debugTest);
+    print("Got developerOptions");
     isEnabled = _developerOptions.enabled;
     started = true;
     return true;

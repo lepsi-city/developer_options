@@ -1,3 +1,8 @@
+## [0.3.0] - 14.3.2021
+
+* Fix some bugs
+* Add second test
+
 ## [0.2.3] - 14.3.2021
 
 * Fix some bugs
