@@ -1,9 +1,9 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:developer_options/core/models/DeveloperOptions.dart';
+import 'package:developer_options/src/core/models/DeveloperOptions.dart';
 
 class DeveloperOptionsService {
-  DeveloperOptions _developerOptions = DeveloperOptions();
+  DeveloperOptionsModel _developerOptions = DeveloperOptionsModel();
   late SharedPreferences _prefs;
   bool? started;
   bool isEnabled = false;
@@ -11,7 +11,7 @@ class DeveloperOptionsService {
 
   Future<bool> init() async {
     _prefs = await SharedPreferences.getInstance();
-    _developerOptions = DeveloperOptions.fromString(_prefs.getString(KEY_DEVELOPER_OPTIONS) ?? "{}");
+    _developerOptions = DeveloperOptionsModel.fromString(_prefs.getString(KEY_DEVELOPER_OPTIONS) ?? "{}");
     isEnabled = _developerOptions.enabled;
     started = true;
     return true;
