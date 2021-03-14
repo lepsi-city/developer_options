@@ -1,3 +1,7 @@
+## [0.2.1] - 14.3.2021
+
+* Fix mutable map
+
 ## [0.2.0] - 14.3.2021
 
 * Fix wrong named class in developer_options.dart
