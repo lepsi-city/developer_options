@@ -1,8 +1,7 @@
 name: developer_options
 description: Package for getting/setting developer options in your app
 version: 0.1.1
-author: lepší.city s.r.o.
-homepage:
+repository: https://github.com/lepsi-city/developer_options
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
