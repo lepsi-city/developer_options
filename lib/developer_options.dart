@@ -1,10 +1,11 @@
 library developer_options;
 
-class DeveloperOptionsService {
-  late DeveloperOptionsService _developerOptionsService;
+import 'package:developer_options/src/core/services/developerOptions_services.dart';
+
+class DeveloperOptions {
+  DeveloperOptionsService _developerOptionsService = DeveloperOptionsService();
   bool started = false;
   bool isEnabled = false;
-  static const KEY_DEVELOPER_OPTIONS = "KEY_DEVELOPER_OPTIONS";
 
   Future<bool> init() async {
     await _developerOptionsService.init();
@@ -17,18 +18,31 @@ class DeveloperOptionsService {
     _developerOptionsService.setDeveloperStatus(enabled);
   }
 
+  setDeveloperOption(String key, bool value) {
+    _developerOptionsService.setDeveloperOption(key, value);
+  }
+
+  setDeveloperString(String key, String value) {
+    _developerOptionsService.setDeveloperString(key, value);
+  }
+
   bool getDeveloperStatus() {
     return _developerOptionsService.getDeveloperStatus();
   }
 
-  Future<bool> getDeveloperStatusFuture() async {
-    if(started) {
-      return _developerOptionsService.getDeveloperStatus();
-    }
-    else {
-      await init();
-      return _developerOptionsService.getDeveloperStatus();
-    }
+  bool? getDeveloperOption(String key) {
+    return _developerOptionsService.getDeveloperOption(key);
   }
 
+  bool getDeveloperOptionNullSafe(String key) {
+    return getDeveloperOption(key) ?? false;
+  }
+
+  String? getDeveloperString(String key) {
+    return _developerOptionsService.getDeveloperString(key);
+  }
+
+  String getDeveloperStringNullSafe(String key) {
+    return getDeveloperString(key) ?? "";
+  }
 }

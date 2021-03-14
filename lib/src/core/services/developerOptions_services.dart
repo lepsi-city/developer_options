@@ -7,7 +7,7 @@ class DeveloperOptionsService {
   late SharedPreferences _prefs;
   bool? started;
   bool isEnabled = false;
-  static const KEY_DEVELOPER_OPTIONS = "KEY_DEVELOPER_OPTIONS";
+  static const KEY_DEVELOPER_OPTIONS = "PKG_DEVELOPER_OPTIONS_KEY_DEVELOPER_OPTIONS";
 
   Future<bool> init() async {
     _prefs = await SharedPreferences.getInstance();
@@ -29,5 +29,21 @@ class DeveloperOptionsService {
 
   bool getDeveloperStatus() {
     return _developerOptions.enabled;
+  }
+
+  setDeveloperOption(String key, bool value) {
+    _developerOptions.options[key] = value;
+  }
+
+  bool? getDeveloperOption(String key) {
+    return _developerOptions.options[key];
+  }
+
+  setDeveloperString(String key, String value) {
+    _developerOptions.strings[key] = value;
+  }
+
+  String? getDeveloperString(String key) {
+    return _developerOptions.strings[key];
   }
 }
