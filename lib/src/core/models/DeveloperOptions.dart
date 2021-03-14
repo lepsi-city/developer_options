@@ -2,16 +2,16 @@ import 'dart:convert';
 
 class DeveloperOptionsModel {
   bool enabled;
-  Map<String, bool> options = Map();
-  Map<String, String> strings = Map();
+  Map<String, dynamic> options = Map();
+  Map<String, dynamic> strings = Map();
 
   DeveloperOptionsModel({this.enabled = false, required this.options, required this.strings});
 
   factory DeveloperOptionsModel.fromJson(Map<String, dynamic?> json) {
     return DeveloperOptionsModel(
       enabled: json["enabled"] ?? false,
-      options: jsonDecode(json["options"]) ?? Map(),
-      strings: jsonDecode(json["strings"]) ?? Map(),
+      options: jsonDecode(json["options"] ?? "{}") ?? Map(),
+      strings: jsonDecode(json["strings"] ?? "{}") ?? Map(),
     );
   }
 

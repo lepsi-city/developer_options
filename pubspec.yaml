@@ -1,6 +1,6 @@
 name: developer_options
 description: Package for getting/setting developer options in your app
-version: 0.2.2
+version: 0.2.3
 repository: https://github.com/lepsi-city/developer_options
 
 environment:
@@ -15,6 +15,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  test: ^1.16.5
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

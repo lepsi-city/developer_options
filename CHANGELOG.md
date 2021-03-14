@@ -1,3 +1,9 @@
+## [0.2.3] - 14.3.2021
+
+* Fix some bugs
+* Add basic test
+
+
 ## [0.2.2] - 14.3.2021
 
 * Fix late initialization
