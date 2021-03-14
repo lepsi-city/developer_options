@@ -1,6 +1,6 @@
 name: developer_options
 description: Package for getting/setting developer options in your app
-version: 0.1.2
+version: 0.2.0
 repository: https://github.com/lepsi-city/developer_options
 
 environment:
