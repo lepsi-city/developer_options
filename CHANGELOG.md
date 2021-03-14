@@ -1,3 +1,7 @@
+## [0.2.2] - 14.3.2021
+
+* Fix late initialization
+
 ## [0.2.1] - 14.3.2021
 
 * Fix mutable map

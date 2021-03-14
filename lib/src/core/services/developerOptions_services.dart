@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:developer_options/src/core/models/DeveloperOptions.dart';
 
 class DeveloperOptionsService {
-  late DeveloperOptionsModel _developerOptions;
+  DeveloperOptionsModel _developerOptions = DeveloperOptionsModel(options: Map(), strings: Map()); //TODO: Refactor
   late SharedPreferences _prefs;
   bool? started;
   bool isEnabled = false;
