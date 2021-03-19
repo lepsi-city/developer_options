@@ -1,3 +1,8 @@
+## [0.5.1] - 20.3.2021
+
+* Format code
+* Change description
+
 ## [0.5.0] - 20.3.2021
 
 * Enable for app in debug mode

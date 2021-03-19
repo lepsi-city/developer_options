@@ -15,7 +15,7 @@ class DeveloperOptions {
   }
 
   setDeveloperStatus(bool enabled) async {
-    await  _developerOptionsService.setDeveloperStatus(enabled);
+    await _developerOptionsService.setDeveloperStatus(enabled);
   }
 
   setDeveloperOption(String key, bool value) async {

@@ -15,13 +15,11 @@ class DeveloperOptionsService {
   Future<bool> init() async {
     _prefs = await SharedPreferences.getInstance();
     String optionString;
-    if(kReleaseMode) {
+    if (kReleaseMode) {
+      optionString = _prefs.getString(KEY_DEVELOPER_OPTIONS) ?? "{}";
+    } else {
       optionString =
-          _prefs.getString(KEY_DEVELOPER_OPTIONS) ?? "{}";
-    }
-    else {
-      optionString =
-      _prefs.getString(KEY_DEVELOPER_OPTIONS) ?? "{\"enabled\":true}";
+          _prefs.getString(KEY_DEVELOPER_OPTIONS) ?? "{\"enabled\":true}";
     }
     _developerOptions = DeveloperOptionsModel.fromString(optionString);
     isEnabled = _developerOptions.enabled;
