@@ -6,39 +6,76 @@ import 'package:flutter_test/flutter_test.dart' as flutter_test;
 
 void main() {
   group("DeveloperOptions", () {
-    test('Developer Options should be created and inited successfully', () async {
+    DeveloperOptionsModel mockdata = DeveloperOptionsModel.fromJson({
+      "enabled": true,
+      "options": {"testValue1": true},
+      "strings": {"testValue2": "test"},
+    });
+    test('Developer Options should be created and inited successfully',
+        () async {
       SharedPreferences.setMockInitialValues({});
       flutter_test.TestWidgetsFlutterBinding.ensureInitialized();
 
       DeveloperOptions developerOptions = new DeveloperOptions();
-      print("awaiting");
+
       await developerOptions.init();
-      print("successfully awaited");
+
       expect(developerOptions.isEnabled, false);
     });
 
-    test('load DeveloperOptions', () async {
-      DeveloperOptionsModel mockdata = DeveloperOptionsModel.fromJson({
-        "enabled" : true,
-        "options" : {"testValue1" : true},
-        "strings" : {"testValue2" : "test"},
-      });
-      print("got model");
+    test('load DeveloperOptions and verify if enabled', () async {
       SharedPreferences.setMockInitialValues({
-        "PKG_DEVELOPER_OPTIONS_KEY_DEVELOPER_OPTIONS" : mockdata.toString(),
+        "PKG_DEVELOPER_OPTIONS_KEY_DEVELOPER_OPTIONS": mockdata.toString(),
       });
-      print("got mock values");
+
+      flutter_test.TestWidgetsFlutterBinding.ensureInitialized();
+      DeveloperOptions developerOptions = new DeveloperOptions();
+
+      await developerOptions.init();
+
+      expect(developerOptions.isEnabled, true);
+    });
+
+    test('load DeveloperOptions and verify retrieved values', () async {
+      SharedPreferences.setMockInitialValues({
+        "PKG_DEVELOPER_OPTIONS_KEY_DEVELOPER_OPTIONS": mockdata.toString(),
+      });
+
       flutter_test.TestWidgetsFlutterBinding.ensureInitialized();
 
       DeveloperOptions developerOptions = new DeveloperOptions();
-      print("awaiting");
+
       await developerOptions.init();
-      print("successfully awaited");
-      expect(developerOptions.isEnabled, true);
 
+      expect(developerOptions.getDeveloperString("testValue2"), "test");
+    });
 
+    test('load DeveloperOptions and verify retrieved options', () async {
+      SharedPreferences.setMockInitialValues({
+        "PKG_DEVELOPER_OPTIONS_KEY_DEVELOPER_OPTIONS": mockdata.toString(),
+      });
 
+      flutter_test.TestWidgetsFlutterBinding.ensureInitialized();
+
+      DeveloperOptions developerOptions = new DeveloperOptions();
+      await developerOptions.init();
+
+      expect(developerOptions.getDeveloperOption("testValue1"), true);
+    });
+
+    test('save DeveloperOptions and verify retrieved options', () async {
+      SharedPreferences.setMockInitialValues({
+        "PKG_DEVELOPER_OPTIONS_KEY_DEVELOPER_OPTIONS": mockdata.toString(),
+      });
+
+      flutter_test.TestWidgetsFlutterBinding.ensureInitialized();
+
+      DeveloperOptions developerOptions = new DeveloperOptions();
+      await developerOptions.init();
+
+      await developerOptions.setDeveloperOption("testValue3", true);
+
+      expect(developerOptions.getDeveloperOption("testValue3"), true);
     });
   });
 }
-

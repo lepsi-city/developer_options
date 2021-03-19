@@ -5,7 +5,8 @@ class DeveloperOptionsModel {
   Map<String, dynamic> options = Map();
   Map<String, dynamic> strings = Map();
 
-  DeveloperOptionsModel({this.enabled = false, required this.options, required this.strings});
+  DeveloperOptionsModel(
+      {this.enabled = false, required this.options, required this.strings});
 
   factory DeveloperOptionsModel.fromJson(Map<String, dynamic?> json) {
     return DeveloperOptionsModel(
