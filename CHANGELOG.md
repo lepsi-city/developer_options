@@ -1,3 +1,8 @@
+## [0.4.0] - 20.3.2021
+
+* Add async to setting functions
+* Add more test
+
 ## [0.3.1] - 14.3.2021
 
 * Fix saving bug
