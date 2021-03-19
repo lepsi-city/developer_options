@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:developer_options/src/core/models/DeveloperOptions.dart';
@@ -13,8 +14,16 @@ class DeveloperOptionsService {
 
   Future<bool> init() async {
     _prefs = await SharedPreferences.getInstance();
-    _developerOptions = DeveloperOptionsModel.fromString(
-        _prefs.getString(KEY_DEVELOPER_OPTIONS) ?? "{}");
+    String optionString;
+    if(kReleaseMode) {
+      optionString =
+          _prefs.getString(KEY_DEVELOPER_OPTIONS) ?? "{}";
+    }
+    else {
+      optionString =
+      _prefs.getString(KEY_DEVELOPER_OPTIONS) ?? "{\"enabled\":true}";
+    }
+    _developerOptions = DeveloperOptionsModel.fromString(optionString);
     isEnabled = _developerOptions.enabled;
     started = true;
     return true;
