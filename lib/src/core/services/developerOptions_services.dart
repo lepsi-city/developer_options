@@ -3,15 +3,18 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:developer_options/src/core/models/DeveloperOptions.dart';
 
 class DeveloperOptionsService {
-  DeveloperOptionsModel _developerOptions = DeveloperOptionsModel(options: Map(), strings: Map()); //TODO: Refactor
+  DeveloperOptionsModel _developerOptions =
+      DeveloperOptionsModel(options: Map(), strings: Map()); //TODO: Refactor
   late SharedPreferences _prefs;
   bool? started;
   bool isEnabled = false;
-  static const KEY_DEVELOPER_OPTIONS = "PKG_DEVELOPER_OPTIONS_KEY_DEVELOPER_OPTIONS";
+  static const KEY_DEVELOPER_OPTIONS =
+      "PKG_DEVELOPER_OPTIONS_KEY_DEVELOPER_OPTIONS";
 
   Future<bool> init() async {
     _prefs = await SharedPreferences.getInstance();
-    _developerOptions = DeveloperOptionsModel.fromString(_prefs.getString(KEY_DEVELOPER_OPTIONS) ?? "{}");
+    _developerOptions = DeveloperOptionsModel.fromString(
+        _prefs.getString(KEY_DEVELOPER_OPTIONS) ?? "{}");
     isEnabled = _developerOptions.enabled;
     started = true;
     return true;
