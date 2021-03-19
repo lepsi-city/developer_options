@@ -1,3 +1,7 @@
+## [0.5.0] - 20.3.2021
+
+* Enable for app in debug mode
+
 ## [0.4.0] - 20.3.2021
 
 * Add async to setting functions
