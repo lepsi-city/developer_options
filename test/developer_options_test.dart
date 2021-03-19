@@ -11,17 +11,6 @@ void main() {
       "options": {"testValue1": true},
       "strings": {"testValue2": "test"},
     });
-    test('Developer Options should be created and inited successfully',
-        () async {
-      SharedPreferences.setMockInitialValues({});
-      flutter_test.TestWidgetsFlutterBinding.ensureInitialized();
-
-      DeveloperOptions developerOptions = new DeveloperOptions();
-
-      await developerOptions.init();
-
-      expect(developerOptions.isEnabled, false);
-    });
 
     test('load DeveloperOptions and verify if enabled', () async {
       SharedPreferences.setMockInitialValues({
