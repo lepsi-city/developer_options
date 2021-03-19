@@ -14,16 +14,16 @@ class DeveloperOptions {
     return true;
   }
 
-  setDeveloperStatus(bool enabled) {
-    _developerOptionsService.setDeveloperStatus(enabled);
+  setDeveloperStatus(bool enabled) async {
+    await  _developerOptionsService.setDeveloperStatus(enabled);
   }
 
-  setDeveloperOption(String key, bool value) {
-    _developerOptionsService.setDeveloperOption(key, value);
+  setDeveloperOption(String key, bool value) async {
+    await _developerOptionsService.setDeveloperOption(key, value);
   }
 
-  setDeveloperString(String key, String value) {
-    _developerOptionsService.setDeveloperString(key, value);
+  setDeveloperString(String key, String value) async {
+    await _developerOptionsService.setDeveloperString(key, value);
   }
 
   bool getDeveloperStatus() {

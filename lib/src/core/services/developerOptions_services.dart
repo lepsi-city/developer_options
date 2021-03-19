@@ -21,31 +21,31 @@ class DeveloperOptionsService {
   }
 
   Future _saveDeveloperOptions() async {
-    _prefs.setString(KEY_DEVELOPER_OPTIONS, _developerOptions.toString());
+    await _prefs.setString(KEY_DEVELOPER_OPTIONS, _developerOptions.toString());
   }
 
-  setDeveloperStatus(bool enabled) {
+  setDeveloperStatus(bool enabled) async {
     _developerOptions.enabled = enabled;
     isEnabled = enabled;
-    _saveDeveloperOptions();
+    await _saveDeveloperOptions();
   }
 
   bool getDeveloperStatus() {
     return _developerOptions.enabled;
   }
 
-  setDeveloperOption(String key, bool value) {
+  setDeveloperOption(String key, bool value) async {
     _developerOptions.options[key] = value;
-    _saveDeveloperOptions();
+    await _saveDeveloperOptions();
   }
 
   bool? getDeveloperOption(String key) {
     return _developerOptions.options[key];
   }
 
-  setDeveloperString(String key, String value) {
+  setDeveloperString(String key, String value) async {
     _developerOptions.strings[key] = value;
-    _saveDeveloperOptions();
+    await _saveDeveloperOptions();
   }
 
   String? getDeveloperString(String key) {

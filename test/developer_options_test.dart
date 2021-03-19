@@ -73,7 +73,9 @@ void main() {
       DeveloperOptions developerOptions = new DeveloperOptions();
       await developerOptions.init();
 
-      expect(developerOptions.getDeveloperOption("testValue1"), true);
+      await developerOptions.setDeveloperOption("testValue3", true);
+
+      expect(developerOptions.getDeveloperOption("testValue3"), true);
     });
   });
 }
