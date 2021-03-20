@@ -1,3 +1,7 @@
+## [0.5.2] - 20.3.2021
+
+* Add Dart Doc comments
+
 ## [0.5.1] - 20.3.2021
 
 * Format code
