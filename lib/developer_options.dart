@@ -1,3 +1,4 @@
+/// Library for setting and getting developer options.
 library developer_options;
 
 import 'package:developer_options/src/core/services/developerOptions_services.dart';
