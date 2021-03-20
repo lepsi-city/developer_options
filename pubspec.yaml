@@ -1,6 +1,6 @@
 name: developer_options
 description: Package for enabling developer options in your app, setting/getting boolean and string values using SharedPreferences plugin
-version: 0.5.2
+version: 0.5.3
 repository: https://github.com/lepsi-city/developer_options
 
 environment:

@@ -1,3 +1,7 @@
+## [0.5.3] - 20.3.2021
+
+* Add basic example
+
 ## [0.5.2] - 20.3.2021
 
 * Add Dart Doc comments

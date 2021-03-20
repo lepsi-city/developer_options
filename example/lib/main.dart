@@ -11,11 +11,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'developer_options Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'developer_options example'),
     );
   }
 }
@@ -41,9 +41,11 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
   }
 
-  void _setDeveloper() {
+  void _setDeveloper() async {
+    await developerOptions.setDeveloperStatus(true);
     setState(() {
-      developerOptions.setDeveloperStatus(true);
+      isDeveloper = true;
+      developerStatusText = isDeveloper ? "Yes" : "No";
     });
   }
 
