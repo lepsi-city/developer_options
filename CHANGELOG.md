@@ -1,3 +1,7 @@
+## [0.6.0] - 21.9.2021
+
+* Add basic example
+
 ## [0.5.3] - 20.3.2021
 
 * Add basic example

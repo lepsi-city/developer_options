@@ -1,6 +1,6 @@
 name: developer_options
 description: Package for enabling developer options in your app, setting/getting boolean and string values using SharedPreferences plugin
-version: 0.5.3
+version: 0.6.0
 repository: https://github.com/lepsi-city/developer_options
 
 environment:
@@ -16,7 +16,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   test: ^1.16.5
-  dependency_validator: ^2.0.1
+  dependency_validator: ^3.1.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
