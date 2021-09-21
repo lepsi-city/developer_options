@@ -1,6 +1,10 @@
+## [0.6.1] - 21.9.2021
+
+* Minor fixes
+
 ## [0.6.0] - 21.9.2021
 
-* Add basic example
+* Update packages
 
 ## [0.5.3] - 20.3.2021
 
