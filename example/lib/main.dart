@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  const MyHomePage({Key key, this.title}) : super(key: key);
 
   final String title;
 
@@ -31,9 +31,10 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   bool isDeveloper = false;
-  DeveloperOptions developerOptions = new DeveloperOptions();
+  DeveloperOptions developerOptions = DeveloperOptions();
   String developerStatusText = "No";
 
+  @override
   void initState() async {
     await developerOptions.init();
     isDeveloper = developerOptions.getDeveloperStatus();

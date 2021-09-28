@@ -1,25 +1,25 @@
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:developer_options/src/core/models/DeveloperOptions.dart';
+import 'package:developer_options/src/core/models/developer_options.dart';
 
 class DeveloperOptionsService {
   DeveloperOptionsModel _developerOptions =
-      DeveloperOptionsModel(options: Map(), strings: Map()); //TODO: Refactor
+      DeveloperOptionsModel(options: {}, strings: {}); //TODO: Refactor
   late SharedPreferences _prefs;
   bool? started;
   bool isEnabled = false;
-  static const KEY_DEVELOPER_OPTIONS =
+  static const keyDeveloperOptions =
       "PKG_DEVELOPER_OPTIONS_KEY_DEVELOPER_OPTIONS";
 
   Future<bool> init() async {
     _prefs = await SharedPreferences.getInstance();
     String optionString;
     if (kReleaseMode) {
-      optionString = _prefs.getString(KEY_DEVELOPER_OPTIONS) ?? "{}";
+      optionString = _prefs.getString(keyDeveloperOptions) ?? "{}";
     } else {
       optionString =
-          _prefs.getString(KEY_DEVELOPER_OPTIONS) ?? "{\"enabled\":true}";
+          _prefs.getString(keyDeveloperOptions) ?? "{\"enabled\":true}";
     }
     _developerOptions = DeveloperOptionsModel.fromString(optionString);
     isEnabled = _developerOptions.enabled;
@@ -28,7 +28,7 @@ class DeveloperOptionsService {
   }
 
   Future _saveDeveloperOptions() async {
-    await _prefs.setString(KEY_DEVELOPER_OPTIONS, _developerOptions.toString());
+    await _prefs.setString(keyDeveloperOptions, _developerOptions.toString());
   }
 
   setDeveloperStatus(bool enabled) async {

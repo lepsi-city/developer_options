@@ -1,10 +1,10 @@
 /// Library for setting and getting developer options.
 library developer_options;
 
-import 'package:developer_options/src/core/services/developerOptions_services.dart';
+import 'package:developer_options/src/core/services/developer_options_services.dart';
 
 class DeveloperOptions {
-  DeveloperOptionsService _developerOptionsService = DeveloperOptionsService();
+  final DeveloperOptionsService _developerOptionsService = DeveloperOptionsService();
   bool started = false;
   bool isEnabled = false;
 
