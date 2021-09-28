@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:developer_options/developer_options.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'developer_options example'),
+      home: const MyHomePage(title: 'developer_options example'),
     );
   }
 }
@@ -60,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+            const Text(
               'Are you a developer?',
             ),
             Text(
@@ -73,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _setDeveloper,
         tooltip: 'Be a developer',
-        child: Icon(Icons.hardware),
+        child: const Icon(Icons.hardware),
       ),
     );
   }
