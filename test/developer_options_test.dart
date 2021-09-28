@@ -1,5 +1,5 @@
 import 'package:developer_options/developer_options.dart';
-import 'package:developer_options/src/core/models/DeveloperOptions.dart';
+import 'package:developer_options/src/core/models/developer_options.dart';
 import 'package:test/test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_test/flutter_test.dart' as flutter_test;
@@ -18,7 +18,7 @@ void main() {
       });
 
       flutter_test.TestWidgetsFlutterBinding.ensureInitialized();
-      DeveloperOptions developerOptions = new DeveloperOptions();
+      DeveloperOptions developerOptions = DeveloperOptions();
 
       await developerOptions.init();
 
@@ -32,7 +32,7 @@ void main() {
 
       flutter_test.TestWidgetsFlutterBinding.ensureInitialized();
 
-      DeveloperOptions developerOptions = new DeveloperOptions();
+      DeveloperOptions developerOptions = DeveloperOptions();
 
       await developerOptions.init();
 
@@ -46,7 +46,7 @@ void main() {
 
       flutter_test.TestWidgetsFlutterBinding.ensureInitialized();
 
-      DeveloperOptions developerOptions = new DeveloperOptions();
+      DeveloperOptions developerOptions = DeveloperOptions();
       await developerOptions.init();
 
       expect(developerOptions.getDeveloperOption("testValue1"), true);
@@ -59,7 +59,7 @@ void main() {
 
       flutter_test.TestWidgetsFlutterBinding.ensureInitialized();
 
-      DeveloperOptions developerOptions = new DeveloperOptions();
+      DeveloperOptions developerOptions = DeveloperOptions();
       await developerOptions.init();
 
       await developerOptions.setDeveloperOption("testValue3", true);
