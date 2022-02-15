@@ -4,7 +4,8 @@ library developer_options;
 import 'package:developer_options/src/core/services/developer_options_services.dart';
 
 class DeveloperOptions {
-  final DeveloperOptionsService _developerOptionsService = DeveloperOptionsService();
+  final DeveloperOptionsService _developerOptionsService =
+      DeveloperOptionsService();
   bool started = false;
   bool isEnabled = false;
 

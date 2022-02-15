@@ -1,3 +1,8 @@
+## [0.6.2] - 15.2.2022
+
+* Upgrade example to null safety
+* Upgrade packages
+
 ## [0.6.1] - 21.9.2021
 
 * Minor fixes
