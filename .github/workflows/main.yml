@@ -3,7 +3,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Flutter
+name: Analyze+test & publish
 
 on:
   push:
@@ -41,6 +41,7 @@ jobs:
       - name: Run tests
         run: flutter test
   publish:
+    needs: analyze_test
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
